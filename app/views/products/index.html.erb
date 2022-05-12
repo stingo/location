@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+<div class="text-center p-2 bg-dark">
+  <span style="color:#fff; font-size: 20px;">Country name: <%= @country %> | Country code: <%= @country_name %></span>
+</div>
+<h1>Products</h1>
+
+<div id="products">
+  <% @products.each do |product| %>
+    <%= render product %>
+    <p>
+      <%= link_to "Show this product", product %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New product", new_product_path %>
