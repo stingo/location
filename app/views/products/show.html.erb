@@ -7,4 +7,8 @@
   <%= link_to "Back to products", products_path %>
 
   <%= button_to "Destroy this product", @product, method: :delete %>
+  <br>
+  <div>
+    <p><%= @product.description %></p>
+  </div>
 </div>

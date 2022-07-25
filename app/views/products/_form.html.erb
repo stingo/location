@@ -1,4 +1,4 @@
-<%= form_with(model: product) do |form| %>
+<%= form_with(model: product) do |f| %>
   <% if product.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
@@ -12,11 +12,1885 @@
   <% end %>
 
   <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+    <%= f.label :title, style: "display: block" %>
+    <%= f.text_field :title %>
   </div>
 
+
+                            <div class="row mb-3 mt-3">
+                              <div class="col-lg-3 col-md-4 col-12">
+                                <h5><span class="required">*</span>Product description <small class="text-muted">(Usually in bullet points)</small>
+                                  <a class="blu"><span>
+                                    <i class="fa fa-info-circle"  data-toggle="popover" data-placement="top" title="<span class='close'></span>A descriptive title helps buyers find your item. State exactly what your item is. Include words that buyers might use to search for your item. Learn more <a href='/support' target='_blank' class='blu small' style='font-size: 12px'>XYZ</a>" aria-hidden="true" aria-label="Close" data-html="true" > 
+                                    </i></span>
+                                  </a>
+                                </h5>
+                              </div>
+                              <div class="col-lg-9 col-md-8 col-12">
+                                <%= f.rich_text_area :description, :label => 'description', :placeholder => 'write full a description of your product', class: "form-control up-input-blue height-scroll", :input_html => {rows: "4"} %>
+
+                                <small>Add accurate and concise details of the product you want to sell.
+                                </small>
+                              </div>
+                            </div> 
+
+
+
+
+
+
+                          </div>
+                        </div>
+                      </div><!--description ends-->
+
+
+
   <div>
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>
+
+
+
+
+<script>
+  "use strict";
+var courseForm;
+((function () {
+  if (
+    ($(".course-list, .scrollbar").length &&
+      $(".course-list, .scrollbar").slimScroll({ height: "100%" }),
+    $(".nav-scroller").length &&
+      $(".nav-scroller").slimScroll({ height: "97%" }),
+    $(".dropdown-menu a.dropdown-toggle").length &&
+      $(".dropdown-menu a.dropdown-toggle").on("click", function (e) {
+        return (
+          $(this).next().hasClass("show") ||
+            $(this)
+              .parents(".dropdown-menu")
+              .first()
+              .find(".show")
+              .removeClass("show"),
+          $(this).next(".dropdown-menu").toggleClass("show"),
+          $(this)
+            .parents("li.nav-item.dropdown.show")
+            .on("hidden.bs.dropdown", function (e) {
+              $(".dropdown-submenu .show").removeClass("show");
+            }),
+          !1
+        );
+      }),
+    $(".notification-list-scroll").length &&
+      $(".notification-list-scroll").slimScroll({ height: 300 }),
+    $('[data-toggle="tooltip"]').length &&
+      $('[data-toggle="tooltip"]').tooltip(),
+    $('[data-toggle="popover"]').length &&
+      $('[data-toggle="popover"]').popover(),
+    $("#cardRadioone , #cardRadioTwo").length &&
+      ($("#internetpayment").hide(),
+      $("#cardRadioone").on("change", function () {
+        this.checked &&
+          ($("#cardpayment").show(), $("#internetpayment").hide());
+      }),
+      $("#cardRadioTwo").on("change", function () {
+        this.checked &&
+          ($("#internetpayment").show(), $("#cardpayment").hide());
+      })),
+    $(".popup-youtube").length &&
+      $(".popup-youtube").magnificPopup({
+        type: "iframe",
+        mainClass: "mfp-fade",
+        removalDelay: 160,
+        preloader: !1,
+        fixedContentPos: !0
+      }),
+    $(".flatpickr").length && flatpickr(".flatpickr", { disableMobile: !0 }),
+    $(".password-field input").length)
+  ) {
+    $(".password-field input").on("keyup", function () {
+      var e = (function (e) {
+          var t = 0;
+          e.length >= 6 && (t += 1);
+          e.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/) && (t += 1);
+          e.match(/([a-zA-Z])/) && e.match(/([0-9])/) && (t += 1);
+          return t;
+        })($(this).val()),
+        t = $(this).parent(".password-field");
+      t.removeClass(function (e, t) {
+        return (t.match(/\level\S+/g) || []).join(" ");
+      }),
+        t.addClass("level" + e);
+    });
+  }
+  if (
+    ($("input").length && Inputmask().mask(document.querySelectorAll("input")),
+    $("#earning").length)
+  ) {
+    var e = {
+      series: [
+        {
+          name: "Current Month",
+          data: [10, 20, 15, 25, 18, 28, 22, 32, 24, 34, 26, 38]
+        }
+      ],
+      labels: [
+        "Jan",
+        "Feb",
+        "March",
+        "April",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+      ],
+      chart: {
+        fontFamily: "$font-family-base",
+        height: "280px",
+        type: "line",
+        toolbar: { show: !1 }
+      },
+      colors: ["#754FFE"],
+      stroke: { width: 4, curve: "smooth", colors: ["#754FFE"] },
+      xaxis: {
+        axisBorder: { show: !1 },
+        axisTicks: { show: !1 },
+        crosshairs: { show: !0 },
+        labels: {
+          offsetX: 0,
+          offsetY: 5,
+          style: { fontSize: "13px", fontWeight: 400, colors: "#a8a3b9" }
+        }
+      },
+      yaxis: {
+        labels: {
+          formatter: function (e) {
+            return e + "k";
+          },
+          style: { fontSize: "13px", fontWeight: 400, colors: "#a8a3b9" },
+          offsetX: -15
+        },
+        tickAmount: 3,
+        min: 10,
+        max: 40
+      },
+      grid: {
+        borderColor: "#e0e6ed",
+        strokeDashArray: 5,
+        xaxis: { lines: { show: !1 } },
+        yaxis: { lines: { show: !0 } },
+        padding: { top: 0, right: 0, bottom: 0, left: 0 }
+      },
+      legend: {
+        position: "top",
+        horizontalAlign: "right",
+        offsetY: -50,
+        fontSize: "16px",
+        markers: {
+          width: 10,
+          height: 10,
+          strokeWidth: 0,
+          strokeColor: "#fff",
+          fillColors: void 0,
+          radius: 12,
+          onClick: void 0,
+          offsetX: 0,
+          offsetY: 0
+        },
+        itemMargin: { horizontal: 0, vertical: 20 }
+      },
+      tooltip: { theme: "light", marker: { show: !0 }, x: { show: !1 } },
+      responsive: [{ breakpoint: 575, options: { legend: { offsetY: -30 } } }]
+    };
+    new ApexCharts(document.querySelector("#earning"), e).render();
+  }
+  if ($("#earningTwo").length) {
+    e = {
+      series: [
+        {
+          name: "Current Month",
+          data: [10, 20, 15, 25, 18, 28, 22, 32, 24, 34, 26, 38]
+        }
+      ],
+      labels: [
+        "Jan",
+        "Feb",
+        "March",
+        "April",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+      ],
+      chart: {
+        fontFamily: "$font-family-base",
+        height: "280px",
+        type: "line",
+        toolbar: { show: !1 }
+      },
+      colors: ["#754FFE"],
+      stroke: { width: 4, curve: "smooth", colors: ["#754FFE"] },
+      xaxis: {
+        axisBorder: { show: !1 },
+        axisTicks: { show: !1 },
+        crosshairs: { show: !0 },
+        labels: {
+          offsetX: 0,
+          offsetY: 5,
+          style: { fontSize: "13px", fontWeight: 400, colors: "#a8a3b9" }
+        }
+      },
+      yaxis: {
+        labels: {
+          formatter: function (e) {
+            return e + "k";
+          },
+          style: { fontSize: "13px", fontWeight: 400, colors: "#a8a3b9" },
+          offsetX: -15
+        },
+        tickAmount: 3,
+        min: 10,
+        max: 40
+      },
+      grid: {
+        borderColor: "#e0e6ed",
+        strokeDashArray: 5,
+        xaxis: { lines: { show: !1 } },
+        yaxis: { lines: { show: !0 } },
+        padding: { top: 0, right: 0, bottom: 0, left: 0 }
+      },
+      legend: {
+        position: "top",
+        horizontalAlign: "right",
+        offsetY: -50,
+        fontSize: "16px",
+        markers: {
+          width: 10,
+          height: 10,
+          strokeWidth: 0,
+          strokeColor: "#fff",
+          fillColors: void 0,
+          radius: 12,
+          onClick: void 0,
+          offsetX: 0,
+          offsetY: 0
+        },
+        itemMargin: { horizontal: 0, vertical: 20 }
+      },
+      tooltip: { theme: "light", marker: { show: !0 }, x: { show: !1 } },
+      responsive: [{ breakpoint: 575, options: { legend: { offsetY: -30 } } }]
+    };
+    new ApexCharts(document.querySelector("#earningTwo"), e).render();
+  }
+  if ($("#order").length) {
+    e = {
+      series: [
+        {
+          name: "Days",
+          data: [0, 3, 0.5, 3.5, 1, 2.5, 0.5, 4, 1.4, 4.5, 2.5, 4.8]
+        }
+      ],
+      labels: [
+        "12 Jan",
+        "14 Jan",
+        "16 Jan",
+        "18 Jan",
+        "20 Jan",
+        "22 Jan",
+        "24 Jan",
+        "26 Jan",
+        "27 Jan",
+        "28 Jan",
+        "29 Jan",
+        "30 Jan"
+      ],
+      chart: {
+        fontFamily: "$font-family-base",
+        height: "280px",
+        type: "line",
+        toolbar: { show: !1 }
+      },
+      colors: ["#754FFE"],
+      stroke: { width: 4, curve: "smooth", colors: ["#754FFE"] },
+      xaxis: {
+        axisBorder: { show: !1 },
+        axisTicks: { show: !1 },
+        crosshairs: { show: !0 },
+        labels: {
+          offsetX: 0,
+          offsetY: 5,
+          style: { fontSize: "13px", fontWeight: 400, colors: "#a8a3b9" }
+        }
+      },
+      yaxis: {
+        labels: {
+          formatter: function (e, t) {
+            return e.toFixed(0);
+          },
+          style: { fontSize: "13px", fontWeight: 400, colors: "#a8a3b9" },
+          offsetX: -20
+        },
+        tickAmount: 3,
+        min: 0,
+        max: 5
+      },
+      grid: {
+        borderColor: "#e0e6ed",
+        strokeDashArray: 5,
+        xaxis: { lines: { show: !1 } },
+        yaxis: { lines: { show: !0 } },
+        padding: { top: 0, right: 0, bottom: 0, left: -10 }
+      },
+      legend: {
+        position: "top",
+        horizontalAlign: "right",
+        offsetY: -50,
+        fontSize: "16px",
+        markers: {
+          width: 10,
+          height: 10,
+          strokeWidth: 0,
+          strokeColor: "#fff",
+          fillColors: void 0,
+          radius: 12,
+          onClick: void 0,
+          offsetX: 0,
+          offsetY: 0
+        },
+        itemMargin: { horizontal: 0, vertical: 20 }
+      },
+      tooltip: { theme: "light", marker: { show: !0 }, x: { show: !1 } },
+      responsive: [{ breakpoint: 575, options: { legend: { offsetY: -30 } } }]
+    };
+    new ApexCharts(document.querySelector("#order"), e).render();
+  }
+  if ($("#traffic").length) {
+    e = {
+      dataLabels: { enabled: !1 },
+      series: [44, 55, 41],
+      labels: ["Direct", "Referral", "Organic"],
+      colors: ["#754FFE", "#CEC0FF", "#E8E2FF"],
+      chart: { width: 392, type: "donut" },
+      plotOptions: { pie: { expandOnClick: !1, donut: { size: "78%" } } },
+      legend: {
+        position: "bottom",
+        fontFamily: "inter",
+        fontWeight: 500,
+        fontSize: "14px",
+        markers: {
+          width: 8,
+          height: 8,
+          strokeWidth: 0,
+          strokeColor: "#fff",
+          fillColors: void 0,
+          radius: 12,
+          customHTML: void 0,
+          onClick: void 0,
+          offsetX: 0,
+          offsetY: 0
+        },
+        itemMargin: { horizontal: 8, vertical: 0 }
+      },
+      tooltip: { theme: "light", marker: { show: !0 }, x: { show: !1 } },
+      states: { hover: { filter: { type: "none" } } }
+    };
+    new ApexCharts(document.querySelector("#traffic"), e).render();
+  }
+  if ($("#orderColumn").length) {
+    e = {
+      series: [{ data: [4, 6, 5, 3, 5, 6, 8, 9] }],
+      chart: { toolbar: { show: !1 }, type: "bar", height: 272 },
+      colors: ["#754FFE"],
+      plotOptions: {
+        bar: { horizontal: !1, columnWidth: "12%", endingShape: "rounded" }
+      },
+      dataLabels: { enabled: !1 },
+      stroke: { show: !0, width: 1, colors: ["transparent"] },
+      grid: {
+        borderColor: "#e0e6ed",
+        strokeDashArray: 5,
+        xaxis: { lines: { show: !1 } }
+      },
+      xaxis: {
+        categories: [
+          "1 Jun",
+          "9 Jun",
+          "16 jun",
+          "18 Jun",
+          "19 Jun",
+          "22 jun",
+          "24 Jun",
+          "26 Jun"
+        ],
+        axisBorder: { show: !1 },
+        labels: {
+          offsetX: 0,
+          offsetY: 5,
+          style: { fontSize: "13px", fontWeight: 400, colors: "#a8a3b9" }
+        }
+      },
+      grid: {
+        borderColor: "#e0e6ed",
+        strokeDashArray: 5,
+        xaxis: { lines: { show: !1 } },
+        yaxis: { lines: { show: !0 } },
+        padding: { top: 0, right: 0, bottom: 0, left: -10 }
+      },
+      yaxis: {
+        title: { text: void 0 },
+        plotOptions: {
+          bar: { horizontal: !1, endingShape: "rounded", columnWidth: "80%" }
+        },
+        labels: {
+          style: { fontSize: "13px", fontWeight: 400, colors: "#a8a3b9" },
+          offsetX: -10
+        }
+      },
+      fill: { opacity: 1 },
+      tooltip: {
+        y: {
+          formatter: function (e) {
+            return e + " sales ";
+          }
+        },
+        marker: { show: !0 }
+      }
+    };
+    new ApexCharts(document.querySelector("#orderColumn"), e).render();
+  }
+  if ($("#totalEarning").length) {
+    e = {
+      series: [{ data: [50, 80, 5, 90, 12, 150, 12, 80, 150] }],
+      chart: { width: 130, type: "line", toolbar: { show: !1 } },
+      tooltip: { enabled: !1 },
+      stroke: {
+        show: !0,
+        curve: "smooth",
+        lineCap: "butt",
+        colors: ["#19cb98"],
+        width: 2,
+        dashArray: 0
+      },
+      grid: { show: !1 },
+      yaxis: { labels: { show: !1 } },
+      xaxis: {
+        axisBorder: { show: !1 },
+        labels: { show: !1 },
+        categories: [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep"
+        ]
+      }
+    };
+    new ApexCharts(document.querySelector("#totalEarning"), e).render();
+  }
+  if ($("#payoutChart").length) {
+    e = {
+      series: [{ name: "Inflation", data: [40, 20, 50, 80, 65] }],
+      chart: { height: 150, type: "bar", toolbar: { show: !1 } },
+      colors: ["#E8E2FF"],
+      grid: { show: !1 },
+      tooltip: { enabled: !1 },
+      plotOptions: { bar: { endingShape: "flat", columnWidth: "65%" } },
+      dataLabels: { enabled: !1 },
+      xaxis: {
+        labels: { show: !1 },
+        categories: [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec"
+        ],
+        position: "top",
+        axisBorder: { show: !1 },
+        axisTicks: { show: !1 },
+        crosshairs: {
+          fill: {
+            type: "gradient",
+            gradient: {
+              colorFrom: "#D8E3F0",
+              colorTo: "#BED1E6",
+              stops: [0, 100],
+              opacityFrom: 0.4,
+              opacityTo: 0.5
+            }
+          }
+        },
+        tooltip: { enabled: !0 }
+      },
+      yaxis: { show: !1 }
+    };
+    new ApexCharts(document.querySelector("#payoutChart"), e).render();
+  }
+  if ($("#editor").length) new Quill("#editor", { theme: "snow" });
+  if ($("#courseCoverImg").length)
+    new FileUploadWithPreview("courseCoverImg", {
+      showDeleteButtonOnImages: !0,
+      text: { chooseFile: " No File Selected", browse: "Upload File" }
+    });
+  if (
+    ($("#nav-toggle").length &&
+      $("#nav-toggle").on("click", function (e) {
+        e.preventDefault(), $("#db-wrapper").toggleClass("toggled");
+      }),
+    $("#invoice").length &&
+      $("#invoice")
+        .find(".print-link")
+        .on("click", function () {
+          $.print("#invoice");
+        }),
+    $(".sidebar-nav-fixed a").length &&
+      $(".sidebar-nav-fixed a").on("click", function (e) {
+        if (
+          location.pathname.replace(/^\//, "") ==
+            this.pathname.replace(/^\//, "") &&
+          location.hostname == this.hostname
+        ) {
+          var t = $(this.hash);
+          (t = t.length ? t : $("[name=" + this.hash.slice(1) + "]")).length &&
+            (e.preventDefault(),
+            $("html, body").animate(
+              { scrollTop: t.offset().top - 90 },
+              1e3,
+              function () {
+                var e = $(t);
+                if ((e.focus(), e.is(":focus"))) return !1;
+                e.attr("tabindex", "-1"), e.focus();
+              }
+            ));
+        }
+        $(".sidebar-nav-fixed a").each(function () {
+          $(this).removeClass("active");
+        }),
+          $(this).addClass("active");
+      }),
+    $("#checkAll").length &&
+      $("#checkAll").on("click", function () {
+        $("input:checkbox").not(this).prop("checked", this.checked);
+      }),
+    $("#btn-icon").length &&
+      $(".btn-icon").on("click", function () {
+        $(this).parent().addClass("active").siblings().removeClass("active");
+      }),
+    $(".stopevent").length &&
+      $(document).on("click.bs.dropdown.data-api", ".stopevent", function (e) {
+        e.stopPropagation();
+      }),
+    $("input[name=tags]").length)
+  ) {
+    var t = document.querySelector("input[name=tags]");
+    new Tagify(t);
+  }
+  if ($(".headingTyped").length)
+    new Typed(".headingTyped", {
+      strings: ["Skills", "Products ", "Teams", "Future"],
+      typeSpeed: 40,
+      backSpeed: 40,
+      backDelay: 1e3,
+      loop: !0
+    });
+})(),
+(function () {
+  var e = $("#pricing-switch input");
+  $(e).on("change", function () {
+    !0 === $(e).is(":checked")
+      ? $(".toggle-price-content").each(function () {
+          $(this).html($(this).data("price-yearly"));
+        })
+      : $(".toggle-price-content").each(function () {
+          $(this).html($(this).data("price-monthly"));
+        });
+  });
+})(),
+dragula([
+  document.querySelector("#courseOne"),
+  document.querySelector("#courseTwo")
+]),
+$("#courseForm").length) &&
+  document.addEventListener("DOMContentLoaded", function () {
+    courseForm = new Stepper(document.querySelector("#courseForm"), {
+      linear: !1,
+      animation: !0
+    });
+  });
+!(function () {
+  for (var e = document.getElementsByTagName("pre"), t = 0; t < e.length; t++) {
+    if (0 === e[t].children[0].className.indexOf("language-")) {
+      var o = document.createElement("button");
+      (o.className = "copy-button"),
+        (o.textContent = "Copy"),
+        e[t].appendChild(o);
+    }
+  }
+  var n = new Clipboard(".copy-button", {
+    target: function (e) {
+      return e.previousElementSibling;
+    }
+  });
+  n.on("success", function (e) {
+    e.clearSelection(),
+      (e.trigger.textContent = "Copied"),
+      window.setTimeout(function () {
+        e.trigger.textContent = "Copy";
+      }, 2e3);
+  }),
+    n.on("error", function (e) {
+      (e.trigger.textContent = 'Press "Ctrl + C" to copy'),
+        window.setTimeout(function () {
+          e.trigger.textContent = "Copy";
+        }, 5e3);
+    });
+})(),
+  (function () {
+    var e = window.location + "",
+      t = e.replace(
+        window.location.protocol + "//" + window.location.host + "/",
+        ""
+      );
+    $("ul#sidebarnav a")
+      .filter(function () {
+        return this.href === e || this.href === t;
+      })
+      .parentsUntil(".sidebar-nav")
+      .each(function (e) {
+        $(this).is("li") && 0 !== $(this).children("a").length
+          ? ($(this).children("a").addClass("active"),
+            $(this).parent("ul#sidebarnav").length,
+            $(this).addClass("active"))
+          : $(this).is("ul") || 0 !== $(this).children("a").length
+          ? $(this).is("ul") && $(this).addClass("in")
+          : $(this).addClass("active");
+      });
+  })(),
+  (function () {
+    if ($(".sliderFirst").length)
+      tns({
+        container: ".sliderFirst",
+        loop: !1,
+        startIndex: 1,
+        items: 1,
+        nav: !1,
+        autoplay: !0,
+        swipeAngle: !1,
+        speed: 400,
+        autoplayButtonOutput: !1,
+        mouseDrag: !0,
+        lazyload: !0,
+        gutter: 20,
+        controlsContainer: "#sliderFirstControls",
+        responsive: { 768: { items: 2 }, 990: { items: 4 } }
+      });
+    if ($(".sliderSecond").length)
+      tns({
+        container: ".sliderSecond",
+        loop: !1,
+        startIndex: 1,
+        items: 1,
+        nav: !1,
+        autoplay: !0,
+        swipeAngle: !1,
+        speed: 400,
+        autoplayButtonOutput: !1,
+        mouseDrag: !0,
+        lazyload: !0,
+        gutter: 20,
+        controlsContainer: "#sliderSecondControls",
+        responsive: { 768: { items: 2 }, 990: { items: 4 } }
+      });
+    if ($(".sliderThird").length)
+      tns({
+        container: ".sliderThird",
+        loop: !1,
+        startIndex: 1,
+        items: 1,
+        nav: !1,
+        autoplay: !0,
+        swipeAngle: !1,
+        speed: 400,
+        autoplayButtonOutput: !1,
+        mouseDrag: !0,
+        lazyload: !0,
+        gutter: 20,
+        controlsContainer: "#sliderThirdControls",
+        responsive: { 768: { items: 2 }, 990: { items: 4 } }
+      });
+    if ($(".sliderFourth").length)
+      tns({
+        container: ".sliderFourth",
+        loop: !1,
+        startIndex: 1,
+        items: 1,
+        nav: !1,
+        autoplay: !0,
+        swipeAngle: !1,
+        speed: 400,
+        autoplayButtonOutput: !1,
+        mouseDrag: !0,
+        lazyload: !0,
+        gutter: 20,
+        controlsContainer: "#sliderFourthControls",
+        responsive: { 768: { items: 2 }, 990: { items: 4 } }
+      });
+    if ($(".sliderTestimonial").length)
+      tns({
+        container: ".sliderTestimonial",
+        loop: !1,
+        startIndex: 1,
+        items: 1,
+        nav: !1,
+        autoplay: !0,
+        swipeAngle: !1,
+        speed: 400,
+        autoplayButtonOutput: !1,
+        mouseDrag: !0,
+        lazyload: !0,
+        gutter: 20,
+        controlsContainer: "#sliderTestimonialControls",
+        responsive: { 768: { items: 2 }, 990: { items: 3 } }
+      });
+  })(),
+  tippy(".imgtooltip", {
+    content(e) {
+      const t = e.getAttribute("data-template");
+      return document.getElementById(t).innerHTML;
+    },
+    allowHTML: !0,
+    theme: "light",
+    animation: "scale"
+  }),
+  tippy(".bookmark", { content: "Add to Bookmarks", animation: "scale" }),
+  tippy(".removeBookmark", { content: "Remove Bookmarks", animation: "scale" }),
+  tippy(".texttooltip", {
+    content(e) {
+      const t = e.getAttribute("data-template");
+      return document.getElementById(t).innerHTML;
+    },
+    allowHTML: !0,
+    animation: "scale"
+  }),
+  $(".contacts-list .contacts-link").on("click", function () {
+    $(".chat-body").addClass("chat-body-visible");
+  }),
+  $("[data-close]").on("click", function (e) {
+    e.preventDefault(), $(".chat-body").removeClass("chat-body-visible");
+  }),
+  (function (e) {
+    e.fn.downCount = function (t, o) {
+      var n = e.extend({ date: null, offset: null }, t);
+      n.date || e.error("Date is not defined."),
+        Date.parse(n.date) ||
+          e.error(
+            "Incorrect date format, it should look like this, 12/24/2012 12:00:00."
+          );
+      var a = this,
+        i = function () {
+          var e = new Date(),
+            t = e.getTime() + 6e4 * e.getTimezoneOffset();
+          return new Date(t + 36e5 * n.offset);
+        },
+        r = setInterval(function () {
+          var e = new Date(n.date) - i();
+          if (0 > e)
+            return clearInterval(r), void (o && "function" == typeof o && o());
+          var t = 6e4,
+            s = 60 * t,
+            l = 24 * s,
+            d = Math.floor(e / l),
+            h = Math.floor((e % l) / s),
+            c = Math.floor((e % s) / t),
+            f = Math.floor((e % t) / 1e3),
+            p =
+              1 === (d = String(d).length >= 2 ? d : "0" + d) ? "day" : "days",
+            u =
+              1 === (h = String(h).length >= 2 ? h : "0" + h)
+                ? "hour"
+                : "hours",
+            g =
+              1 === (c = String(c).length >= 2 ? c : "0" + c)
+                ? "minute"
+                : "minutes",
+            m =
+              1 === (f = String(f).length >= 2 ? f : "0" + f)
+                ? "second"
+                : "seconds";
+          a.find(".days").text(d),
+            a.find(".hours").text(h),
+            a.find(".minutes").text(c),
+            a.find(".seconds").text(f),
+            a.find(".days_ref").text(p),
+            a.find(".hours_ref").text(u),
+            a.find(".minutes_ref").text(g),
+            a.find(".seconds_ref").text(m);
+        }, 1e3);
+    };
+  })(jQuery),
+  $(".countdown").downCount({
+    date: (function () {
+      var e = new Date();
+      e.setDate(e.getDate() + 99);
+      var t = e.getDate();
+      return e.getMonth() + 1 + "/" + t + "/" + e.getFullYear() + " 12:00:00";
+    })(),
+    offset: 0
+  }),
+  (function () {
+    if ($("#userChart").length) {
+      var e = {
+        chart: {
+          height: 60,
+          type: "area",
+          toolbar: { show: !1 },
+          sparkline: { enabled: !0 },
+          grid: { show: !1, padding: { left: 0, right: 0 } }
+        },
+        dataLabels: { enabled: !1 },
+        stroke: { curve: "smooth", width: 2 },
+        fill: {
+          type: "gradient",
+          gradient: {
+            shadeIntensity: 0.9,
+            opacityFrom: 0.7,
+            opacityTo: 0.5,
+            stops: [0, 80, 100]
+          }
+        },
+        series: [{ name: "User", data: [28, 40, 36, 52, 38, 60, 55] }],
+        xaxis: { labels: { show: !1 }, axisBorder: { show: !1 } },
+        yaxis: [
+          { y: 0, offsetX: 0, offsetY: 0, padding: { left: 0, right: 0 } }
+        ],
+        tooltip: { x: { show: !1 } }
+      };
+      new ApexCharts(document.querySelector("#userChart"), e).render();
+    }
+    if ($("#userChartExample").length) {
+      e = {
+        chart: {
+          height: 60,
+          type: "area",
+          toolbar: { show: !1 },
+          sparkline: { enabled: !0 },
+          grid: { show: !1, padding: { left: 0, right: 0 } }
+        },
+        colors: ["#e53f3c"],
+        dataLabels: { enabled: !1 },
+        stroke: { curve: "smooth", width: 2 },
+        fill: {
+          type: "gradient",
+          gradient: {
+            shadeIntensity: 0.9,
+            opacityFrom: 0.7,
+            opacityTo: 0.5,
+            stops: [0, 80, 100]
+          }
+        },
+        series: [{ name: "User", data: [28, 40, 36, 52, 38, 60, 55] }],
+        xaxis: { labels: { show: !1 }, axisBorder: { show: !1 } },
+        yaxis: [
+          { y: 0, offsetX: 0, offsetY: 0, padding: { left: 0, right: 0 } }
+        ],
+        tooltip: { x: { show: !1 } }
+      };
+      new ApexCharts(document.querySelector("#userChartExample"), e).render();
+    }
+    if ($("#userChart").length) {
+      e = {
+        chart: {
+          height: 60,
+          type: "area",
+          toolbar: { show: !1 },
+          sparkline: { enabled: !0 },
+          grid: { show: !1, padding: { left: 0, right: 0 } }
+        },
+        colors: ["#19cb98"],
+        dataLabels: { enabled: !1 },
+        stroke: { curve: "smooth", width: 2 },
+        fill: {
+          colors: "#19cb98",
+          type: "gradient",
+          gradient: {
+            type: "vertical",
+            shadeIntensity: 0.9,
+            opacityFrom: 0.7,
+            opacityTo: 0.5,
+            stops: [0, 100]
+          }
+        },
+        series: [{ name: "User", data: [28, 40, 36, 52, 38, 60, 55] }],
+        xaxis: { labels: { show: !1 }, axisBorder: { show: !1 } },
+        yaxis: [
+          { y: 0, offsetX: 0, offsetY: 0, padding: { left: 0, right: 0 } }
+        ],
+        tooltip: { x: { show: !1 } }
+      };
+      new ApexCharts(document.querySelector("#visitorChart"), e).render();
+    }
+    if ($("#bounceChart").length) {
+      e = {
+        chart: {
+          height: 60,
+          type: "line",
+          toolbar: { show: !1 },
+          sparkline: { enabled: !0 },
+          grid: { show: !1, padding: { left: 0, right: 0 } }
+        },
+        colors: ["#c28135"],
+        dataLabels: { enabled: !1 },
+        stroke: { curve: "straight", width: 4 },
+        markers: { size: 4, hover: { size: 6, sizeOffset: 3 } },
+        series: [{ name: "Bonus Rate", data: [28, 40, 36, 52, 38, 60, 55] }],
+        xaxis: { labels: { show: !1 }, axisBorder: { show: !1 } },
+        yaxis: [
+          { y: 0, offsetX: 0, offsetY: 0, padding: { left: 0, right: 0 } }
+        ],
+        tooltip: { x: { show: !1 } }
+      };
+      new ApexCharts(document.querySelector("#bounceChart"), e).render();
+    }
+    if ($("#sessionChart").length) {
+      e = {
+        series: [
+          {
+            name: "Session Duration",
+            data: [600, 1e3, 400, 2e3, 500, 900, 2500, 1800, 3800],
+            colors: ["#754ffe"]
+          },
+          {
+            name: "Page Views",
+            data: [1e3, 2e3, 800, 1200, 300, 1900, 1600, 2e3, 1e3]
+          },
+          {
+            name: "Total Visits",
+            data: [2200, 1e3, 3400, 900, 500, 2500, 3e3, 1e3, 2500]
+          }
+        ],
+        chart: {
+          animations: {
+            enabled: !0,
+            easing: "easeinout",
+            speed: 800,
+            animateGradually: { enabled: !0, delay: 500 },
+            dynamicAnimation: { enabled: !0, speed: 350 }
+          },
+          toolbar: { show: !1 },
+          height: 400,
+          type: "line",
+          zoom: { enabled: !1 }
+        },
+        dataLabels: { enabled: !1 },
+        stroke: { width: [4, 3, 3], curve: "smooth", dashArray: [0, 5, 4] },
+        legend: { show: !1 },
+        colors: ["#754ffe", "#19cb98", "#ffaa46"],
+        markers: { size: 0, hover: { sizeOffset: 6 } },
+        xaxis: {
+          categories: [
+            "01 Jan",
+            "02 Jan",
+            "03 Jan",
+            "04 Jan",
+            "05 Jan",
+            "06 Jan",
+            "07 Jan",
+            "08 Jan",
+            "09 Jan",
+            "10 Jan",
+            "11 Jan",
+            "12 Jan"
+          ],
+          labels: {
+            style: {
+              colors: ["#5c5776"],
+              fontSize: "12px",
+              fontFamily: "Inter",
+              cssClass: "apexcharts-xaxis-label"
+            }
+          }
+        },
+        yaxis: {
+          labels: {
+            style: {
+              colors: ["#5c5776"],
+              fontSize: "12px",
+              fontFamily: "Inter",
+              cssClass: "apexcharts-xaxis-label"
+            },
+            offsetX: -12,
+            offsetY: 0
+          }
+        },
+        tooltip: {
+          y: [
+            {
+              title: {
+                formatter: function (e) {
+                  return e + " (mins)";
+                }
+              }
+            },
+            {
+              title: {
+                formatter: function (e) {
+                  return e + " per session";
+                }
+              }
+            },
+            {
+              title: {
+                formatter: function (e) {
+                  return e;
+                }
+              }
+            }
+          ]
+        },
+        grid: { borderColor: "#f1f1f1" }
+      };
+      new ApexCharts(document.querySelector("#sessionChart"), e).render();
+    }
+    if ($("#support-chart1").length) {
+      e = {
+        chart: { type: "bar", height: 302, sparkline: { enabled: !0 } },
+        states: {
+          normal: { filter: { type: "none", value: 0 } },
+          hover: { filter: { type: "darken", value: 0.55 } },
+          active: {
+            allowMultipleDataPointsSelection: !1,
+            filter: { type: "darken", value: 0.55 }
+          }
+        },
+        colors: ["#8968fe"],
+        plotOptions: { bar: { borderRadius: 4, columnWidth: "50%" } },
+        series: [
+          {
+            data: [
+              25,
+              66,
+              41,
+              70,
+              63,
+              25,
+              44,
+              22,
+              36,
+              19,
+              54,
+              44,
+              32,
+              36,
+              29,
+              54,
+              25,
+              66,
+              41,
+              65,
+              63,
+              25,
+              44,
+              12,
+              36,
+              39,
+              25,
+              44,
+              42,
+              36,
+              54
+            ]
+          }
+        ],
+        xaxis: { crosshairs: { width: 1 } },
+        tooltip: {
+          fixed: { enabled: !1 },
+          x: { show: !1 },
+          y: {
+            title: {
+              formatter: function (e) {
+                return "Active User";
+              }
+            }
+          },
+          marker: { show: !1 }
+        }
+      };
+      new ApexCharts(document.querySelector("#support-chart1"), e).render();
+    }
+    if ($("#locationmap").length) {
+      new jsVectorMap({
+        map: "world",
+        selector: "#locationmap",
+        zoomOnScroll: !0,
+        zoomButtons: !0,
+        markersSelectable: !0,
+        markers: [
+          { name: "United Kingdom", coords: [53.613, -11.6368] },
+          { name: "India", coords: [20.7504374, 73.7276105] },
+          { name: "United States", coords: [37.2580397, -104.657039] },
+          { name: "Australia", coords: [-25.0304388, 115.2092761] }
+        ],
+        markerStyle: { initial: { fill: "#754FFE" } },
+        markerLabelStyle: {
+          initial: {
+            fontFamily: "Inter",
+            fontSize: 13,
+            fontWeight: 500,
+            cursor: "default",
+            fill: "#18113C"
+          }
+        },
+        labels: { markers: { render: (e) => e.name } }
+      });
+    }
+    if ($("#trafficDountChart").length) {
+      e = {
+        series: [60, 55, 12, 17],
+        labels: ["Organic Search", "Direct", "Refferrals", "Social Media"],
+        colors: ["#754FFE", "#19cb98", "#e53f3c", "#ffaa46"],
+        chart: { type: "donut", height: 260 },
+        legend: { show: !1 },
+        dataLabels: { enabled: !1 },
+        plotOptions: { pie: { donut: { size: "50%" } } },
+        stroke: { width: 2 }
+      };
+      new ApexCharts(document.querySelector("#trafficDountChart"), e).render();
+    }
+    if ($("#operatingSystem").length) {
+      e = {
+        series: [55, 88, 80, 75],
+        labels: ["Window", "macOS", "Linux", "Android"],
+        chart: { type: "polarArea", height: 350 },
+        colors: ["#e53f3c", "#19cb98", "#754FFE", "#29BAF9"],
+        legend: { show: !1 },
+        stroke: { colors: ["#fff"] },
+        fill: { opacity: 0.9 }
+      };
+      new ApexCharts(document.querySelector("#operatingSystem"), e).render();
+    }
+  })();
+
+</script>
+
+<style >
+  .trix-content .attachment-gallery > action-text-attachment,
+.trix-content .attachment-gallery > .attachment {
+  flex: 1 0 33%;
+  padding: 0 0.5em;
+  max-width: 33%;
+}
+
+.trix-content .attachment-gallery.attachment-gallery--2 > action-text-attachment,
+.trix-content .attachment-gallery.attachment-gallery--2 > .attachment, .trix-content .attachment-gallery.attachment-gallery--4 > action-text-attachment,
+.trix-content .attachment-gallery.attachment-gallery--4 > .attachment {
+  flex-basis: 50%;
+  max-width: 50%;
+}
+
+.trix-content action-text-attachment .attachment {
+  padding: 0 !important;
+  max-width: 100% !important;
+}
+
+
+@charset "UTF-8";
+trix-editor {
+  @apply form-control;
+  border-radius: 3px;
+  margin: 0;
+  padding: 0.4em 0.6em;
+  min-height: 5em;
+  outline: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+trix-toolbar {
+  @apply form-control;
+  border-bottom: none;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding: 0;
+}
+trix-toolbar * {
+  box-sizing: border-box;
+}
+trix-toolbar .trix-button-row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  overflow-x: auto;
+}
+trix-toolbar .trix-button-group {
+  display: flex;
+}
+@media (max-device-width: 768px) {
+  trix-toolbar .trix-button-group:not(:first-child) {
+    margin-left: 0;
+  }
+}
+trix-toolbar .trix-button-group-spacer {
+  flex-grow: 1;
+}
+@media (max-device-width: 768px) {
+  trix-toolbar .trix-button-group-spacer {
+    display: none;
+  }
+}
+trix-toolbar .trix-button {
+  position: relative;
+  float: left;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.75em;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 0 0.5em;
+  margin: 0;
+  outline: none;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+}
+trix-toolbar .trix-button.trix-active {
+  background: #cbeefa;
+  color: black;
+}
+trix-toolbar .trix-button:not(:disabled) {
+  cursor: pointer;
+}
+trix-toolbar .trix-button:disabled {
+  color: rgba(0, 0, 0, 0.125);
+}
+@media (max-device-width: 768px) {
+  trix-toolbar .trix-button {
+    letter-spacing: -0.01em;
+    padding: 0 0.3em;
+  }
+}
+trix-toolbar .trix-button--icon {
+  font-size: inherit;
+  width: 2.2em;
+  height: 2.0em;
+  max-width: calc(0.8em + 4vw);
+  text-indent: -9999px;
+}
+@media (max-device-width: 768px) {
+  trix-toolbar .trix-button--icon {
+    height: 2em;
+    max-width: calc(0.8em + 3.5vw);
+  }
+}
+trix-toolbar .trix-button--icon::before {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0.6;
+  content: "";
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media (max-device-width: 768px) {
+  trix-toolbar .trix-button--icon::before {
+    right: 6%;
+    left: 6%;
+  }
+}
+trix-toolbar .trix-button--icon.trix-active::before {
+  opacity: 1;
+}
+trix-toolbar .trix-button--icon:disabled::before {
+  opacity: 0.125;
+}
+trix-toolbar .trix-button--icon-attach::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M16.5%206v11.5a4%204%200%201%201-8%200V5a2.5%202.5%200%200%201%205%200v10.5a1%201%200%201%201-2%200V6H10v9.5a2.5%202.5%200%200%200%205%200V5a4%204%200%201%200-8%200v12.5a5.5%205.5%200%200%200%2011%200V6h-1.5z%22%2F%3E%3C%2Fsvg%3E);
+  top: 8%;
+  bottom: 4%;
+}
+trix-toolbar .trix-button--icon-bold::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M15.6%2011.8c1-.7%201.6-1.8%201.6-2.8a4%204%200%200%200-4-4H7v14h7c2.1%200%203.7-1.7%203.7-3.8%200-1.5-.8-2.8-2.1-3.4zM10%207.5h3a1.5%201.5%200%201%201%200%203h-3v-3zm3.5%209H10v-3h3.5a1.5%201.5%200%201%201%200%203z%22%2F%3E%3C%2Fsvg%3E);
+}
+trix-toolbar .trix-button--icon-italic::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M10%205v3h2.2l-3.4%208H6v3h8v-3h-2.2l3.4-8H18V5h-8z%22%2F%3E%3C%2Fsvg%3E);
+}
+trix-toolbar .trix-button--icon-link::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M9.88%2013.7a4.3%204.3%200%200%201%200-6.07l3.37-3.37a4.26%204.26%200%200%201%206.07%200%204.3%204.3%200%200%201%200%206.06l-1.96%201.72a.91.91%200%201%201-1.3-1.3l1.97-1.71a2.46%202.46%200%200%200-3.48-3.48l-3.38%203.37a2.46%202.46%200%200%200%200%203.48.91.91%200%201%201-1.3%201.3z%22%2F%3E%3Cpath%20d%3D%22M4.25%2019.46a4.3%204.3%200%200%201%200-6.07l1.93-1.9a.91.91%200%201%201%201.3%201.3l-1.93%201.9a2.46%202.46%200%200%200%203.48%203.48l3.37-3.38c.96-.96.96-2.52%200-3.48a.91.91%200%201%201%201.3-1.3%204.3%204.3%200%200%201%200%206.07l-3.38%203.38a4.26%204.26%200%200%201-6.07%200z%22%2F%3E%3C%2Fsvg%3E);
+}
+trix-toolbar .trix-button--icon-strike::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M12.73%2014l.28.14c.26.15.45.3.57.44.12.14.18.3.18.5%200%20.3-.15.56-.44.75-.3.2-.76.3-1.39.3A13.52%2013.52%200%200%201%207%2014.95v3.37a10.64%2010.64%200%200%200%204.84.88c1.26%200%202.35-.19%203.28-.56.93-.37%201.64-.9%202.14-1.57s.74-1.45.74-2.32c0-.26-.02-.51-.06-.75h-5.21zm-5.5-4c-.08-.34-.12-.7-.12-1.1%200-1.29.52-2.3%201.58-3.02%201.05-.72%202.5-1.08%204.34-1.08%201.62%200%203.28.34%204.97%201l-1.3%202.93c-1.47-.6-2.73-.9-3.8-.9-.55%200-.96.08-1.2.26-.26.17-.38.38-.38.64%200%20.27.16.52.48.74.17.12.53.3%201.05.53H7.23zM3%2013h18v-2H3v2z%22%2F%3E%3C%2Fsvg%3E);
+}
+trix-toolbar .trix-button--icon-quote::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20version%3D%221%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M6%2017h3l2-4V7H5v6h3zm8%200h3l2-4V7h-6v6h3z%22%2F%3E%3C%2Fsvg%3E);
+}
+trix-toolbar .trix-button--icon-heading-1::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20version%3D%221%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M12%209v3H9v7H6v-7H3V9h9zM8%204h14v3h-6v12h-3V7H8V4z%22%2F%3E%3C%2Fsvg%3E);
+}
+trix-toolbar .trix-button--icon-code::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M18.2%2012L15%2015.2l1.4%201.4L21%2012l-4.6-4.6L15%208.8l3.2%203.2zM5.8%2012L9%208.8%207.6%207.4%203%2012l4.6%204.6L9%2015.2%205.8%2012z%22%2F%3E%3C%2Fsvg%3E);
+}
+trix-toolbar .trix-button--icon-bullet-list::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20version%3D%221%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M4%204a2%202%200%201%200%200%204%202%202%200%200%200%200-4zm0%206a2%202%200%201%200%200%204%202%202%200%200%200%200-4zm0%206a2%202%200%201%200%200%204%202%202%200%200%200%200-4zm4%203h14v-2H8v2zm0-6h14v-2H8v2zm0-8v2h14V5H8z%22%2F%3E%3C%2Fsvg%3E);
+}
+trix-toolbar .trix-button--icon-number-list::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M2%2017h2v.5H3v1h1v.5H2v1h3v-4H2v1zm1-9h1V4H2v1h1v3zm-1%203h1.8L2%2013.1v.9h3v-1H3.2L5%2010.9V10H2v1zm5-6v2h14V5H7zm0%2014h14v-2H7v2zm0-6h14v-2H7v2z%22%2F%3E%3C%2Fsvg%3E);
+}
+trix-toolbar .trix-button--icon-undo::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M12.5%208c-2.6%200-5%201-6.9%202.6L2%207v9h9l-3.6-3.6A8%208%200%200%201%2020%2016l2.4-.8a10.5%2010.5%200%200%200-10-7.2z%22%2F%3E%3C%2Fsvg%3E);
+}
+trix-toolbar .trix-button--icon-redo::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M18.4%2010.6a10.5%2010.5%200%200%200-16.9%204.6L4%2016a8%208%200%200%201%2012.7-3.6L13%2016h9V7l-3.6%203.6z%22%2F%3E%3C%2Fsvg%3E);
+}
+trix-toolbar .trix-button--icon-decrease-nesting-level::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M3%2019h19v-2H3v2zm7-6h12v-2H10v2zm-8.3-.3l2.8%202.9L6%2014.2%204%2012l2-2-1.4-1.5L1%2012l.7.7zM3%205v2h19V5H3z%22%2F%3E%3C%2Fsvg%3E);
+}
+trix-toolbar .trix-button--icon-increase-nesting-level::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M3%2019h19v-2H3v2zm7-6h12v-2H10v2zm-6.9-1L1%2014.2l1.4%201.4L6%2012l-.7-.7-2.8-2.8L1%209.9%203.1%2012zM3%205v2h19V5H3z%22%2F%3E%3C%2Fsvg%3E);
+}
+trix-toolbar .trix-dialogs {
+  position: relative;
+}
+trix-toolbar .trix-dialog {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  font-size: 0.75em;
+  padding: 15px 10px;
+  background: #fff;
+  box-shadow: 0 0.3em 1em #ccc;
+  border-top: 2px solid #888;
+  border-radius: 5px;
+  z-index: 5;
+}
+trix-toolbar .trix-input--dialog {
+  font-size: inherit;
+  font-weight: normal;
+  padding: 0.5em 0.8em;
+  margin: 0 10px 0 0;
+  border-radius: 3px;
+  border: 1px solid #bbb;
+  background-color: #fff;
+  box-shadow: none;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+trix-toolbar .trix-input--dialog.validate:invalid {
+  box-shadow: #F00 0px 0px 1.5px 1px;
+}
+trix-toolbar .trix-button--dialog {
+  @apply btn btn-small btn-primary;
+  font-size: inherit;
+}
+trix-toolbar .trix-dialog--link {
+  max-width: 600px;
+}
+trix-toolbar .trix-dialog__link-fields {
+  display: flex;
+  align-items: baseline;
+}
+trix-toolbar .trix-dialog__link-fields .trix-input {
+  flex: 1;
+  width: 100%;
+}
+trix-toolbar .trix-dialog__link-fields .trix-button-group {
+  flex: 0 0 content;
+  margin: 0;
+
+  .trix-button--dialog:last-of-type {
+    @apply ml-1;
+  }
+}
+@media (max-device-width: 768px) {
+  trix-toolbar .trix-dialog__link-fields {
+    display: block;
+
+    .trix-button-group {
+      @apply mt-2;
+    }
+  }
+}
+
+trix-editor [data-trix-mutable]:not(.attachment__caption-editor) {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+trix-editor [data-trix-mutable]::-moz-selection,
+trix-editor [data-trix-cursor-target]::-moz-selection, trix-editor [data-trix-mutable] ::-moz-selection {
+  background: none;
+}
+trix-editor [data-trix-mutable]::selection,
+trix-editor [data-trix-cursor-target]::selection, trix-editor [data-trix-mutable] ::selection {
+  background: none;
+}
+
+trix-editor [data-trix-mutable].attachment__caption-editor:focus::-moz-selection {
+  background: highlight;
+}
+trix-editor [data-trix-mutable].attachment__caption-editor:focus::selection {
+  background: highlight;
+}
+
+trix-editor [data-trix-mutable].attachment.attachment--file {
+  box-shadow: 0 0 0 2px highlight;
+  border-color: transparent;
+}
+trix-editor [data-trix-mutable].attachment img {
+  box-shadow: 0 0 0 2px highlight;
+}
+trix-editor .attachment {
+  position: relative;
+}
+trix-editor .attachment:hover {
+  cursor: default;
+}
+trix-editor .attachment--preview .attachment__caption:hover {
+  cursor: text;
+}
+trix-editor .attachment__progress {
+  position: absolute;
+  z-index: 1;
+  height: 20px;
+  top: calc(50% - 10px);
+  left: 5%;
+  width: 90%;
+  opacity: 0.9;
+  transition: opacity 200ms ease-in;
+}
+trix-editor .attachment__progress[value="100"] {
+  opacity: 0;
+}
+trix-editor .attachment__caption-editor {
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  color: inherit;
+  text-align: center;
+  vertical-align: top;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+trix-editor .attachment__toolbar {
+  position: absolute;
+  z-index: 1;
+  top: -0.9em;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+trix-editor .trix-button-group {
+  display: inline-flex;
+}
+trix-editor .trix-button {
+  position: relative;
+  float: left;
+  color: #666;
+  white-space: nowrap;
+  font-size: 80%;
+  padding: 0 0.8em;
+  margin: 0;
+  outline: none;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+}
+trix-editor .trix-button:not(:first-child) {
+  border-left: 1px solid #ccc;
+}
+trix-editor .trix-button.trix-active {
+  background: #cbeefa;
+}
+trix-editor .trix-button:not(:disabled) {
+  cursor: pointer;
+}
+trix-editor .trix-button--remove {
+  text-indent: -9999px;
+  display: inline-block;
+  padding: 0;
+  outline: none;
+  width: 1.8em;
+  height: 1.8em;
+  line-height: 1.8em;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 2px solid highlight;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.25);
+}
+trix-editor .trix-button--remove::before {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0.7;
+  content: "";
+  background-image: url(data:image/svg+xml,%3Csvg%20height%3D%2224%22%20width%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M19%206.4L17.6%205%2012%2010.6%206.4%205%205%206.4l5.6%205.6L5%2017.6%206.4%2019l5.6-5.6%205.6%205.6%201.4-1.4-5.6-5.6z%22%2F%3E%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 90%;
+}
+trix-editor .trix-button--remove:hover {
+  border-color: #333;
+}
+trix-editor .trix-button--remove:hover::before {
+  opacity: 1;
+}
+trix-editor .attachment__metadata-container {
+  position: relative;
+}
+trix-editor .attachment__metadata {
+  position: absolute;
+  left: 50%;
+  top: 2em;
+  transform: translate(-50%, 0);
+  max-width: 90%;
+  padding: 0.1em 0.6em;
+  font-size: 0.8em;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 3px;
+}
+trix-editor .attachment__metadata .attachment__name {
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: bottom;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+trix-editor .attachment__metadata .attachment__size {
+  margin-left: 0.2em;
+  white-space: nowrap;
+}
+
+.trix-content {
+  line-height: 1.5;
+}
+.trix-content * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.trix-content h1 {
+  font-size: 1.2em;
+  line-height: 1.2;
+}
+.trix-content blockquote {
+  border: 0 solid #ccc;
+  border-left-width: 0.3em;
+  margin-left: 0.3em;
+  padding-left: 0.6em;
+}
+.trix-content [dir=rtl] blockquote,
+.trix-content blockquote[dir=rtl] {
+  border-width: 0;
+  border-right-width: 0.3em;
+  margin-right: 0.3em;
+  padding-right: 0.6em;
+}
+.trix-content li {
+  margin-left: 1em;
+}
+.trix-content [dir=rtl] li {
+  margin-right: 1em;
+}
+.trix-content pre {
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+  font-family: monospace;
+  font-size: 0.9em;
+  padding: 0.5em;
+  white-space: pre;
+  background-color: #eee;
+  overflow-x: auto;
+}
+.trix-content img {
+  max-width: 100%;
+  height: auto;
+}
+.trix-content .attachment {
+  display: inline-block;
+  position: relative;
+  max-width: 100%;
+}
+.trix-content .attachment a {
+  color: inherit;
+  text-decoration: none;
+}
+.trix-content .attachment a:hover, .trix-content .attachment a:visited:hover {
+  color: inherit;
+}
+.trix-content .attachment__caption {
+  text-align: center;
+}
+.trix-content .attachment__caption .attachment__name + .attachment__size::before {
+  content: ' · ';
+}
+.trix-content .attachment--preview {
+  width: 100%;
+  text-align: center;
+}
+.trix-content .attachment--preview .attachment__caption {
+  color: #666;
+  font-size: 0.9em;
+  line-height: 1.2;
+}
+.trix-content .attachment--file {
+  color: #333;
+  line-height: 1;
+  margin: 0 2px 2px 2px;
+  padding: 0.4em 1em;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+}
+.trix-content .attachment-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+
+}
+.trix-content .attachment-gallery .attachment {
+  flex: 1 0 33%;
+  padding: 0 0.5em;
+  max-width: 33%;
+
+}
+.trix-content .attachment-gallery.attachment-gallery--2 .attachment, .trix-content .attachment-gallery.attachment-gallery--4 .attachment {
+  flex-basis: 50%;
+  max-width: 50%;
+}
+
+/* We need to override trix.css’s image gallery styles to accommodate the
+  <action-text-attachment> element we wrap around attachments. Otherwise,
+  images in galleries will be squished by the max-width: 33%; rule.
+*/
+
+.link_to_embed {
+  white-space: normal;
+
+  @apply mt-4 md:ml-4;
+
+  [data-behavior='embed_url'] {
+    @apply block md:ml-3 md:inline-block;
+  }
+}
+
+.trix-content {
+  img {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .attachment-gallery {
+    > action-text-attachment,
+    > .attachment {
+      flex: 1 0 33%;
+      padding: 0 0.5em;
+      max-width: 33%;
+    }
+
+    &.attachment-gallery--2,
+    &.attachment-gallery--4 {
+      > action-text-attachment,
+      > .attachment {
+        flex-basis: 50%;
+        max-width: 50%;
+      }
+    }
+  }
+
+  .embed {
+    display: inline-block;
+    line-height: 1;
+    margin: 1em 0 !important;
+    padding: 0 !important;
+    width: 100%;
+  }
+
+  iframe, twitter-widget {
+    display: inline-block !important;
+  }
+}
+
+/* Trix attachment formatting */
+.attachment--preview {
+  margin: 0.6em 0;
+  text-align: center;
+  width: 100%;
+}
+
+/* Tribute styles */
+.tribute-container {
+  border-radius: 4px;
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 0 4px rgba(0,0,0,0.1), 0 5px 20px rgba(0,0,0,0.05);
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    background: #fff;
+    padding: 0.2em 1em;
+    min-width: 15em;
+    max-width: 100%;
+  }
+
+  .highlight {
+    @apply bg-blue-500;
+    color: #fff;
+
+    span {
+      font-weight: bold;
+    }
+  }
+}
+
+/* Tweet embeds */
+blockquote.twitter-tweet {
+    display: inline-block;
+    font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 16px;
+    border-color: #eee #ddd #bbb;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    margin: 10px 5px;
+    padding: 0 16px 16px;
+    max-width: 468px
+}
+
+blockquote.twitter-tweet p {
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 20px
+}
+
+blockquote.twitter-tweet a {
+    color: inherit;
+    font-weight: normal;
+    text-decoration: none;
+    outline: 0 none
+}
+
+blockquote.twitter-tweet a:hover,blockquote.twitter-tweet a:focus {
+    text-decoration: underline
+}
+
+blockquote.twitter-tweet {
+    position: relative;
+    background: white;
+    padding: 72px 20px 28px !important;
+    box-shadow: none;
+    border: 1px solid #e1e8ed;
+    border-radius: 4px;
+    margin: 0;
+    font-style: normal;
+    text-align: left;
+    width: 500px;
+    max-width: 100%
+}
+
+@media (max-width: 369px) {
+    blockquote.twitter-tweet {
+        padding:60px 17.5px 21.5px !important
+    }
+}
+
+blockquote.twitter-tweet:before {
+    content: 'Follow';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 5.5px 12px 6.5px 33px;
+    background: url("data:image/svg+xml,%3Csvg height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m18.89 7.012c.808-.496 1.343-1.173 1.605-2.034-.786.417-1.569.703-2.351.861-.703-.756-1.593-1.14-2.66-1.14-1.043 0-1.924.366-2.643 1.078-.715.717-1.076 1.588-1.076 2.605 0 .309.039.585.117.819-3.076-.105-5.622-1.381-7.628-3.837-.34.601-.51 1.213-.51 1.846 0 1.301.549 2.332 1.645 3.089-.625-.053-1.176-.211-1.645-.47 0 .929.273 1.705.82 2.388.549.676 1.254 1.107 2.115 1.291-.312.08-.641.118-.979.118-.312 0-.533-.026-.664-.083.23.757.664 1.371 1.291 1.841.625.472 1.344.721 2.152.743-1.332 1.045-2.855 1.562-4.578 1.562-.422 0-.721-.006-.902-.038 1.697 1.102 3.586 1.649 5.676 1.649 2.139 0 4.029-.542 5.674-1.626 1.645-1.078 2.859-2.408 3.639-3.974.784-1.564 1.172-3.192 1.172-4.892v-.468c.758-.57 1.371-1.212 1.84-1.921-.68.293-1.383.492-2.11.593z' fill='%23ccc'/%3E%3C/svg%3E") 9px center no-repeat;
+    background-size: 21px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #ccc;
+    font-size: 14px
+}
+
+@media (max-width: 369px) {
+    blockquote.twitter-tweet:before {
+        display:none
+    }
+}
+
+blockquote.twitter-tweet:after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 36px;
+    height: 36px;
+    background: #eee url("data:image/svg+xml,%3Csvg height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m12 12c2.21 0 4-1.795 4-4 0-2.21-1.79-4-4-4s-4 1.79-4 4c0 2.205 1.79 4 4 4zm0 2c-2.665 0-8 1.335-8 4v2h16v-2c0-2.665-5.335-4-8-4z' fill='%23444'/%3E%3C/svg%3E") center center no-repeat;
+    border-radius: 4px
+}
+
+@media (max-width: 369px) {
+    blockquote.twitter-tweet:after {
+        top:17.5px;
+        left: 17.5px
+    }
+}
+
+blockquote.twitter-tweet p {
+    white-space: pre-wrap;
+    margin: 0 0 28px
+}
+
+@media (max-width: 369px) {
+    blockquote.twitter-tweet p {
+        font-size:14px;
+        margin-bottom: 16px
+    }
+}
+
+blockquote.twitter-tweet a {
+    border: 0;
+    box-shadow: none;
+    color: #2b7bb9
+}
+
+blockquote.twitter-tweet>a {
+    color: #888
+}
+
+</style>
