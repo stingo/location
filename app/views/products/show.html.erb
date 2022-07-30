@@ -1,5 +1,4 @@
 <p style="color: green"><%= notice %></p>
-
 <%= render @product %>
 
 <div>
@@ -8,7 +7,26 @@
 
   <%= button_to "Destroy this product", @product, method: :delete %>
   <br>
-  <div>
+  <div id="pr-description">
     <p><%= @product.description %></p>
   </div>
 </div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!--Trix Editor not supporting Ids or Class. Adding via this script -->
+<script>
+
+    $( document ).ready(function() {
+        var id = 0;
+        var nodelist =document.querySelectorAll("#pr-description h1");
+        var  nodelistArray = Array.from(nodelist);
+        nodelistArray.forEach(function(node,item){
+            node.id = id+1;
+            id +=1;
+        })
+    });
+
+</script>
