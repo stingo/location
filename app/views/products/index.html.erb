@@ -1,17 +1,25 @@
-<p style="color: green"><%= notice %></p>
-<div class="text-center p-2 bg-dark">
-  <span style="color:#fff; font-size: 20px;">Country name: <%= @country %> | City name: <%= @city_name %></span>
-</div>
+
+
+
+
 <h1>Products</h1>
 
 <div id="products">
   <% @products.each do |product| %>
     <%= render product %>
     <p>
+      <p>Price: <%= number_to_currency(product.price) if product.price %></p>
+   by <%= product.user.username if product.user.username %><br>
       <%= link_to "Show this product", product %>
     </p>
+    <hr>
   <% end %>
 </div>
+
+
+
+
+
 
 <div data-controller="hello"></div>
 

@@ -1,5 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
+<div class="min-h-screen bg-gray-50 flex flex-col justify-center sm:px-6 lg:px-8">
+<div class="sm:mx-auto sm:w-full sm:max-w-md text-center mx-auto ">
+
+
+<div class="mt-1 sm:mx-auto sm:w-full max-w-md mb-4 justify-center">
+<div class="bg-white py-2 px-4 shadow sm:rounded-lg sm:px-10 justify-center">
 <%= render @product %>
 
 <div>
@@ -8,7 +14,78 @@
 
   <%= button_to "Destroy this product", @product, method: :delete %>
   <br>
-  <div>
+  <div id="pr-description">
     <p><%= @product.description %></p>
   </div>
+  <br>
+  <% if @product.product_images[0] %>
+<a href="/products/<%= @product.slug %>"><% image_tag(@product.product_images[0].variant(resize_to_fill: [223, 223]), loading: "lazy", :alt => "#{@product.title.titleize}" ) %>
+</a>
+<% end %>
+
+
+  <dt>Files :</dt>
+  <dd>
+    <% @product.product_images.each do |product| %>
+      <%= link_to product.filename, product, target: :blank %>
+    <% end %>
+  </dd>
 </div>
+
+<br>
+<% if @product.product_images[0] %>
+<%#= image_tag @product.product_images[0].variant(resize_to_limit: [100, 100]) if @product.product_images[0] %>
+<%= image_tag(@product.product_images[0].variant(resize_to_fill: [223, 223]), loading: "lazy", :alt => "#{@product.title.titleize}" ) %>
+<% end %>
+
+<br>
+Price: <%= number_to_currency(@product.price) if @product.price %>
+<br> by<%= @product.user.email %>
+
+
+
+                                  <div class="text-center">
+
+
+                              <% if current_user.present? && @product.user.id != current_user.id %>
+                                <%= button_to conversations_path(sender_id: current_user.id, recipient_id: @product.user.id, product: @product.id), method: 'post' do %>
+
+                                  <span class="badge-pple-dark-outline" ><i class="fa fa-comments">&nbsp;</i>
+                                  Chat now</span>
+                                     <% end %>
+                               <% end %>
+
+                                  </div>
+<%= link_to edit_user_registration_path do %>                     
+  <strong>Edit <%= current_user.email %></strong>
+<% end %>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!--Trix Editor not supporting Ids or Class. Adding via this script -->
+<script>
+
+    $( document ).ready(function() {
+        var id = 0;
+        var nodelist =document.querySelectorAll("#pr-description h1");
+        var  nodelistArray = Array.from(nodelist);
+        nodelistArray.forEach(function(node,item){
+            node.id = id+1;
+            id +=1;
+        })
+    });
+
+</script>
