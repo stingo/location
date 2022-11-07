@@ -6,18 +6,49 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 <!--link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"-->
-
+     <script defer src="https://kit.fontawesome.com/229dc52226.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%#= javascript_importmap_tags %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
        <p class="alert"><%= alert %></p>
+
+<p style="color: green"><%= notice %></p>
+<div class="text-center p-2 bg-dark">
+  <span style="color:#fff; font-size: 20px;">Country name: <%= @country %> | City name: <%= @city_name %></span>
+  <!--span style="color:#fff; float: right;"><i class="fa fa-user">user</i-->
+
+ <span><a href="/products" style="color#fff">Products</a></span>
+
+<% if !user_signed_in? %><!--statemt-->
+<span class="up-size-base-3 px-3 text-white" style="white-space: nowrap; color:#fff; float: right;">
+  <%= link_to new_user_session_path, turbolinks: true, :class => "up-header wht-no-size up-size-base-3", :style => "cursor:pointer" do %> 
+<span>Sign in</span>
+<% end %>
+
+<% else %>
+<span class="up-size-base-3 px-3 text-white" style="white-space: nowrap; color:#fff; float: right;">
+                    <%= button_to destroy_user_session_path, :method => :delete, :class => "nav-link blk btn-block" do %>
+                         <i class="fas fa-sign-out-alt"></i>Sign out, <%= current_user.email if current_user.email %>
+                    <% end %>
+
+<% end %>
+
+
+
+  </span>
+</div>
+
+
   <body>
     <div class="container">
   <!-- Content here -->
     <%= yield %>
   </div>
   </body>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </html>

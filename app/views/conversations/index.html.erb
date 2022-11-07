@@ -1,0 +1,179 @@
+
+
+<main>
+
+  <%#= render 'shared/main_nav' %>
+
+
+
+
+       
+      <!-- =-=-=-=-=-=-= Main Header End  =-=-=-=-=-=-= --> 
+      <!-- =-=-=-=-=-=-= Breadcrumb =-=-=-=-=-=-= -->
+        <!--header class="header-account-page bg-gradient-primary d-flex align-items-end" style="height: 200px !important"-->
+           <header class="header-account-page bg-gradient-warning d-flex align-items-end" style="height: 200px !important">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class=" col-lg-12">
+                        
+
+                        <!-- Salute + Small stats -->
+                        <!--div class="row align-items-center mb-2 mt-0">
+                            <div class="col-md-5 mb-4 mb-md-0">
+                                <span class="h2 mb-0 text-white d-block">Morning Heather</span>
+                                <span class="text-light">Have a nice day!</span>
+                            </div>
+                            <div class="col-auto flex-fill">
+                                <ul class="list-inline row justify-content-lg-end mb-0">
+
+                                 <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
+                                        <span class="badge badge-dot text-white">
+                                    <i class="bg-red"></i>Verification
+                                </span>
+                                        <a class="d-sm-block up-size-base-1 wht pl-2" href="#">
+                                    Not verified
+                                    <small class="fa fa-angle-up text-danger"></small>
+                                </a>
+                                    </li>
+
+
+                                    <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
+                                        <span class="badge badge-dot text-white">
+                                    <i class="bg-green"></i>Sales
+                                </span>
+                                        <a class="d-sm-block up-size-base-1 wht pl-2" href="#">
+                                    20.5%
+                                    <small class="fa fa-angle-up text-success"></small>
+                                </a>
+                                    </li>
+
+
+
+                                    <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
+                                        <span class="badge badge-dot text-white">
+                                    <i class="bg-orange"></i>Purchase
+                                </span>
+                                        <a class="d-sm-block up-size-base-1 wht pl-2" href="#">
+                                    5.7%
+                                    <small class="fa fa-angle-up text-warning"></small>
+                                </a>
+                                    </li>
+                                    <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
+                                        <span class="badge badge-dot text-white">
+                                    <i class="bg-green"></i>Approved Listings
+                                </span>
+                                        <a class="d-sm-block up-size-base-1 wht pl-2" href="#">
+                                    -3.24%
+                                    <small class="fa fa-angle-down text-success"></small>
+                                </a>
+                                    </li>
+                                    <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
+                                        <span class="badge badge-dot text-white">
+                                    <i class="bg-orange"></i>Awaiting Approval
+                                </span>
+                                        <a class="d-sm-block up-size-base-1 wht pl-2" href="#">
+                                    -3.24%
+                                    <small class="fa fa-angle-down text-warning"></small>
+                                </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div-->
+ <% if user_signed_in?  %> 
+
+                        <!-- Account navigation -->
+                        <div class="d-flex">
+                            <a href="https://www.upfrica.com/guides/level-2-identity-id-verification-photo" target="_blank" class="btn btn-icon btn-group-nav shadow btn-secondary" title="Get Verified Now">
+                                <span class="btn-inner--icon text-danger" style="font-size: 14px"><i class="fa fa-user"></i></span>
+                                <span class="btn-inner--text d-none d-md-inline-block">Unverified User. &nbsp;&nbsp; </span>
+                            </a>
+                            <div class="btn-group btn-group-nav shadow ml-auto" role="group" aria-label="Basic example">
+                                <div class="btn-group" role="group">
+                                    <button id="btn-group-boards" type="button" class="btn btn-secondary btn-icon dropdown-toggle" data-toggle="dropdown" data-offset="0,8" aria-haspopup="true" aria-expanded="false">
+                                        <span class="btn-inner--icon"><i class="fa fa-chart-line"></i></span>
+                                        <span class="btn-inner--text d-none d-sm-inline-block">My Boards</span>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" aria-labelledby="btn-group-boards">
+                                        
+                                        <a class="dropdown-item" href="account-overview.html"><span class="badge badge-dot"><i class="bg-orange"></i></span>Sales &nbsp;&nbsp;&nbsp;<span class="mr-2">9</span></a>
+                                        <a class="dropdown-item" href="account-overview.html"><span class="badge badge-dot"><i class="bg-green"></i></span>Purchases &nbsp;&nbsp;&nbsp;<span class="mr-2">30</span></a>
+
+                                        <a class="dropdown-item" href="account-overview.html"><span class="badge badge-dot"><i class="bg-orange"></i></span>Approved listings &nbsp;&nbsp;&nbsp;<span class="mr-2">6</span></a>
+                                        <a class="dropdown-item" href="account-overview.html"><span class="badge badge-dot"><i class="bg-red"></i></span>Approved listings &nbsp;&nbsp;&nbsp;<span class="mr-2">30</span></a>
+
+ 
+                                    </div>
+                                </div>
+                                <div class="btn-group" role="group">
+
+
+                                    <a href = "/edit.<%= current_user.slug %>" class="btn btn-secondary btn-icon " data-offset="0,8" aria-haspopup="true" aria-expanded="false">
+
+                       
+                                        <span class="btn-inner--icon"><i class="fa fa-sliders-h"></i></span>
+                                        <span class="btn-inner--text d-none d-sm-inline-block">Settings</span>
+                                 
+
+                                    </a>
+
+                                   
+                            </div>
+                        </div>
+
+<% end %>
+                        
+                    </div>
+                </div>
+            </div>
+        </header>
+
+<section>
+
+  <div class="container">
+
+<div class="ui segment">
+  <h3>Mailbox</h3>
+
+ <% if current_user.conversations.any? %>
+<%= conversation_messages_path(current_user.conversations.last) %>
+<% end %>
+
+  <div class="ui list">
+    <div class="item">
+      <% @conversations.each do |conversation| %>
+        <%# if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
+          <% if conversation.sender_id == current_user.id %>
+            <% recipient = User.find(conversation.recipient_id) %>
+          <% else %>
+            <% recipient = User.find(conversation.sender_id) %>
+          <% end %>
+          <%= link_to recipient.email, conversation_messages_path(conversation)%>
+        <% end %>
+      <%# end %>
+    </div>
+  </div>
+</div>
+
+
+<div class="ui segment">
+  <h3>All Users</h3>
+  <div class="ui list">
+    <% @users.each do |user| %>
+      <% if user.id != current_user.id %>
+      <div class="item">
+        <%= user.email %> <%= button_to 'Messaged me!', conversations_path(sender_id: current_user.id, recipient_id: user.id), data: { 'turbo-method' => :post }%>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+</div>
+
+
+</div>
+</section>
+
+<main>
+
+
